@@ -1,9 +1,9 @@
 import React from "react";
 
-const Package = () => {
+const Login = () => {
     return (
         <div>This is Packsge</div>
     );
 };
 
-export default Package;
+export default Login;
