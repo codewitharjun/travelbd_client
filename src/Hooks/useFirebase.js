@@ -7,24 +7,23 @@ import initializeAuthentication from "../Components/LogIn/Firebase/Firebase.init
 
 const useFirebase = () => {
     const [user, setUser] = useState({});
-    const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
 
     const auth = getAuth();
 
     // User LogIn with Google 
     const googleLogin = () => {
+        setIsLoading(true);
         const googleProvider = new GoogleAuthProvider();
-
-        signInWithPopup(auth, googleProvider)
-        .then(result => {
-            console.log(result);
-            console.log('signIn');
-            setUser(result);
-        })
-        .catch (error => {
-            setError(error.message);
-        })
+        return signInWithPopup(auth, googleProvider)
+        // .then(result => {
+        //     console.log(result);
+        //     console.log('signIn');
+        //     setUser(result);
+        // })
+        // .catch (error => {
+        //     setError(error.message);
+        // })
     };
 
 
@@ -36,6 +35,7 @@ const useFirebase = () => {
             } else {
                 setUser({});
             }
+            setIsLoading(false)
         });
         return unsubscribed;
     } , [])
@@ -43,16 +43,14 @@ const useFirebase = () => {
 
     // User SignOut
     const SignOut = () => {
-        signOut(auth).then(() => {
-            console.log('Successfully sign Out')
-        }).catch((error) => {
-            setError(error.message);
-        });
+        setIsLoading(true);
+        signOut(auth)
+        .then(()=>{})
+        .finally(() => setIsLoading(false));
     }
 
     return {
         user,
-        error,
         isLoading,
         setIsLoading,
         googleLogin,
