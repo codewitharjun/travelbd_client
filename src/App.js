@@ -8,8 +8,8 @@ import Login from './Components/LogIn/Login/Login';
 import PageNotFound from './Components/PageNotFound/PageNotFound';
 import Packages from './Components/Home/Packages/Packages';
 import Package from './Components/Home/Package/Package';
-import './App.css';
 import News from './Components/Home/News/News';
+import './App.css';
 
 function App() {
   return (
@@ -31,9 +31,6 @@ function App() {
           </Route>
           <Route path="/package">
             <Package></Package>
-          </Route>
-          <Route path="/register">
-            <SignUp></SignUp>
           </Route>
           <Route path="/login">
             <Login></Login>
