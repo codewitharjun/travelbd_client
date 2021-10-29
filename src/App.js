@@ -9,6 +9,7 @@ import PageNotFound from './Components/PageNotFound/PageNotFound';
 import Packages from './Components/Home/Packages/Packages';
 import Package from './Components/Home/Package/Package';
 import './App.css';
+import News from './Components/Home/News/News';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route path="/packages">
             <Packages></Packages>
+          </Route>
+          <Route path="/news">
+            <News></News>
           </Route>
           <Route path="/package">
             <Package></Package>
