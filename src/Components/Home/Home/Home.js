@@ -5,10 +5,10 @@ import Packages from "../Packages/Packages";
 
 const Home = () => {
     return (
-        <div>
+        <div id="home">
+            <NavCarousel></NavCarousel>
             <Packages></Packages>
             <Package></Package>
-            <NavCarousel></NavCarousel>
         </div>
     );
 };
