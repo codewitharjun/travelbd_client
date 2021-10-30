@@ -10,8 +10,9 @@ import Package from './Components/Home/Package/Package';
 import News from './Components/Home/News/News';
 import AuthProvider from './Context/AuthProvider';
 import PrivateRoute from './Components/LogIn/PrivetRouter/PrivetRouter';
-import './App.css';
 import PackageDetails from './Components/Home/PackageDetails/PackageDetails';
+import AddPackage from './Components/Home/AddPackage/AddPackage';
+import './App.css';
 
 function App() {
   return (
@@ -37,6 +38,9 @@ function App() {
             </Route>
             <PrivateRoute path="/details/:detailsId">
               <PackageDetails></PackageDetails>
+            </PrivateRoute>
+            <PrivateRoute path="/addpackage">
+              <AddPackage></AddPackage>
             </PrivateRoute>
             <Route path="/login">
               <Login></Login>
