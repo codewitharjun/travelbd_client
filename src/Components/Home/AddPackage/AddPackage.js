@@ -4,14 +4,14 @@ import { useForm } from "react-hook-form";
 import './AddPackage.css';
 
 const AddPackage = () => {
-    const { register, handleSubmit, reser } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
         console.log(data);
         axios.post('http://localhost:5000/packages', data)
         .then(res => {
             if(res.data.insertedId) {
                 alert('Add Package Successfully');
-                reser();
+                reset();
             }
         })
     }
@@ -29,7 +29,7 @@ const AddPackage = () => {
                 <input {...register("days", { required: true})} placeholder="Duration days" />
                 <input {...register("qnote", { required: true})} placeholder="Bannner qunote" />
                 <input {...register("bannerImg", { required: true})} placeholder="Banner Image url (w1920-h640)" />
-                <input {...register("img", { required: true})} placeholder="Package Image url (Ratio 3:2)" />
+                <input {...register("packImg", { required: true})} placeholder="Package Image url (Ratio 3:2)" />
                 <input type="submit" />
             </form>
         </div>

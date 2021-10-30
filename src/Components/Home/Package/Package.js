@@ -4,7 +4,6 @@ import { HashLink } from "react-router-hash-link";
 import './Package.css';
 
 const Package = ({pack}) => {
-    console.log(pack);
     const {_id,name, packImg, Days, details} = pack;
     return (
         <div>

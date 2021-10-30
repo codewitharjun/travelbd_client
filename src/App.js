@@ -12,6 +12,8 @@ import AuthProvider from './Context/AuthProvider';
 import PrivateRoute from './Components/LogIn/PrivetRouter/PrivetRouter';
 import PackageDetails from './Components/Home/PackageDetails/PackageDetails';
 import AddPackage from './Components/Home/AddPackage/AddPackage';
+import ManagePackage from './Components/Home/ManagePackage/ManagePackage';
+import Manage from './Components/Home/Manage/Manage';
 import './App.css';
 
 function App() {
@@ -38,6 +40,9 @@ function App() {
             </Route>
             <PrivateRoute path="/details/:detailsId">
               <PackageDetails></PackageDetails>
+            </PrivateRoute>
+            <PrivateRoute path="/managepackage">
+              <ManagePackage></ManagePackage>
             </PrivateRoute>
             <PrivateRoute path="/addpackage">
               <AddPackage></AddPackage>
