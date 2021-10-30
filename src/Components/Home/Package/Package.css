@@ -1,0 +1,10 @@
+.package {
+    margin: 0;
+    padding: 2px 0;
+}
+
+.package-btn {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 12px;
+}

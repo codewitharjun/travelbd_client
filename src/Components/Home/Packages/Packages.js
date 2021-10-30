@@ -1,68 +1,25 @@
-import React from "react";
-import { Carousel } from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import { Row } from "react-bootstrap";
+import Package from "../Package/Package";
+
+
 
 const Packages = () => {
+    const [packages, setPackages] = useState([]);
+    
+    useEffect( () => {
+        fetch('http://localhost:5000/packages')
+        .then(res => res.json())
+        .then(data => setPackages(data));
+    }, [])
+
     return (
         <div id="packages">
-            <Carousel>
-                <Carousel.Item>
-                    <img
-                    className="d-block w-100"
-                    src= "https://i.ibb.co/NZpmMfw/image-3.jpg"
-                    alt="First slide"
-                    />
-                    <Carousel.Caption>
-                    <h3 className="carousel-header">First slide label</h3>
-                    <p className="carousel-text">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                    className="d-block w-100"
-                    src= "https://i.ibb.co/cg6F9vy/image-4.jpg"
-                    alt="First slide"
-                    />
-                    <Carousel.Caption>
-                    <h3 className="carousel-header">First slide label</h3>
-                    <p className="carousel-text">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                    className="d-block w-100"
-                    src= "https://i.ibb.co/jfHM3ZS/image.jpg"
-                    alt="First slide"
-                    />
-                    <Carousel.Caption>
-                    <h3 className="carousel-header">First slide label</h3>
-                    <p className="carousel-text">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                    className="d-block w-100"
-                    src= "https://i.ibb.co/mRX24P7/image-6.jpg"
-                    alt="Third slide"
-                    />
-
-                    <Carousel.Caption>
-                    <h3 className="carousel-header">First slide label</h3>
-                    <p className="carousel-text">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                    className="d-block w-100"
-                    src= "https://i.ibb.co/r3S0p6K/image-1.jpg"
-                    alt="Third slide"
-                    />
-
-                    <Carousel.Caption>
-                    <h3 className="carousel-header">First slide label</h3>
-                    <p className="carousel-text">Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
+            <Row xs={1} md={2} lg={3} className="g-4">
+                    {
+                        packages.map( pack => <Package key={pack._id} pack={pack}></Package>)
+                    }
+            </Row>
         </div>
     );
 };

@@ -11,6 +11,7 @@ import News from './Components/Home/News/News';
 import AuthProvider from './Context/AuthProvider';
 import PrivateRoute from './Components/LogIn/PrivetRouter/PrivetRouter';
 import './App.css';
+import PackageDetails from './Components/Home/PackageDetails/PackageDetails';
 
 function App() {
   return (
@@ -31,8 +32,11 @@ function App() {
             <Route path="/news">
               <News></News>
             </Route>
-            <PrivateRoute path="/package">
+            <Route path="/package">
               <Package></Package>
+            </Route>
+            <PrivateRoute path="/details/:detailsId">
+              <PackageDetails></PackageDetails>
             </PrivateRoute>
             <Route path="/login">
               <Login></Login>
