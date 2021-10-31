@@ -28,17 +28,34 @@ const Packages = () => {
     // }, [addToCart()]);
     
     const addToCart = pack => {
-        console.log(user);
-        const rest = "";
-        const cartPack = [...rest, pack._id]
-        const data =`${user.email}, ${[cartPack]}`; 
-        console.log(data);
-        axios.post('https://tranquil-ridge-17570.herokuapp.com/customers', data)
-        .then(res => {
-            if(res.data.insertedId) {
-                alert('Add Package Successfully');
-            }
+        const email = user.email;
+        const cartItems = [pack._id];
+        const customer = {email, cartItems}
+        console.log(customer);
+        fetch('https://tranquil-ridge-17570.herokuapp.com/customers', {
+            method: 'post',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(customer)
         })
+        .then(res => {
+            if(res.url) {
+                alert('Add To Cart Successfully');
+            }
+            console.log(res);
+        })
+        // console.log(user);
+        // const rest = "";
+        // const cartPack = [...rest, pack._id]
+        // const data =`${user.email}, ${[cartPack]}`; 
+        // console.log(data);
+        // axios.post('https://tranquil-ridge-17570.herokuapp.com/customers', data)
+        // .then(res => {
+        //     if(res.data.insertedId) {
+        //         alert('Add Package Successfully');
+        //     }
+        // })
         // const exists = cart.find(pkg => pkg._id === pack._id);
         // let newCart = [];
         // if(exists) {
