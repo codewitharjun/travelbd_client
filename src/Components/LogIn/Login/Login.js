@@ -21,8 +21,9 @@ const Login = () => {
 
     return (
         <div className="h50">
-            <Button className="mb-5" onClick={handleLogIn} variant="warning">
-                <i className="fab fa-google google-style"></i>GooGle LogIn
+            <h2 className="m-5">Please login</h2>
+            <Button className="m-5 text-center" onClick={handleLogIn} variant="warning">
+                <i className="fab fa-google google-style"></i>LogIn
             </Button>
         </div>
     );

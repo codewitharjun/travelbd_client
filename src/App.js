@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './Components/Shared/Header/Header';
+import NavContact from './Components/Shared/NavContact/NavContact';
 import Footer from './Components/Shared/Footer/Footer';
 import Home from './Components/Home/Home/Home';
 import Login from './Components/LogIn/Login/Login';
@@ -15,12 +16,14 @@ import AddPackage from './Components/Home/AddPackage/AddPackage';
 import ManagePackage from './Components/Home/ManagePackage/ManagePackage';
 import Manage from './Components/Home/Manage/Manage';
 import './App.css';
+import Cart from './Components/Cart/Cart/Cart';
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
         <Router>
+          <NavContact></NavContact>
           <Header></Header>
           <Switch>
             <Route exact path="/">
@@ -46,6 +49,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/addpackage">
               <AddPackage></AddPackage>
+            </PrivateRoute>
+            <PrivateRoute path="/cart">
+              <Cart></Cart>
             </PrivateRoute>
             <Route path="/login">
               <Login></Login>
