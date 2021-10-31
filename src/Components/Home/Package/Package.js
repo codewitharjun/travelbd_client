@@ -17,7 +17,7 @@ const Package = ({pack, addToCart}) => {
                         <div  className="package-btn">
                             <Nav.Link as={HashLink} to={`details/${_id}`}>
                             <Button variant="warning">Package Details</Button></Nav.Link>
-                            <Button onClick={ () => addToCart(_id)} variant="warning">Add to Cart</Button>
+                            <Button onClick={ () => addToCart(pack)} variant="warning">Add to Cart</Button>
                         </div>
                     </Card.Body>
                 </Card>

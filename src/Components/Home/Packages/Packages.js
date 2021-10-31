@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Row } from "react-bootstrap";
 import Package from "../Package/Package";
@@ -9,7 +10,7 @@ import './Packages.css';
 
 const Packages = () => {
     const [packages, setPackages] = useState([]);
-    // const [customer, setCustomer] = useState([]);
+    // const [cart, setCart] = useState();
     const {user} = useAuth();
     
     useEffect( () => {
@@ -18,28 +19,38 @@ const Packages = () => {
         .then(data => setPackages(data));
     }, []);
 
-    // useEffect( () => {
+    //  useEffect( () => {
     //     const url = `http://localhost:5000/customers/${user.email}`;
-    //     console.log(url);
+    //     // console.log(url);
     //     fetch(url)
     //     .then(res => res.json())
     //     .then(data => console.log(data))
-    // }, []);
+    // }, [addToCart()]);
     
-    const addToCart = id => {
-        if(!user.email) {
-            alert('Plese log in first');
-        }
-        else {
-
-            // if(!customer.email) {
-            //     console.log('He is not  a customer', id);
-            // }
-            // else {
-            //     console.log('He is  a customer');
-
-            // }
-        }
+    const addToCart = pack => {
+        console.log(user);
+        const rest = "";
+        const cartPack = [...rest, pack._id]
+        const data =`${user.email}, ${[cartPack]}`; 
+        console.log(data);
+        axios.post('https://tranquil-ridge-17570.herokuapp.com/customers', data)
+        .then(res => {
+            if(res.data.insertedId) {
+                alert('Add Package Successfully');
+            }
+        })
+        // const exists = cart.find(pkg => pkg._id === pack._id);
+        // let newCart = [];
+        // if(exists) {
+        //     const rest = cart.filter(pkg => pkg._id !== pack._id);
+        //     exists.quantity = exists.quantity + 1;
+        //     newCart = [...rest, pack];
+        // } else {
+        //     exists.quantity = 1;
+        //     newCart = [...cart, pack];
+        // }
+        // console.log(newCart);
+        // console.log(data);
     }
 
     return (
