@@ -14,3 +14,7 @@
     background: hotpink;
     color: rgb(253, 253, 253);
 }
+
+.notfound {
+    max-height: 550px;
+}

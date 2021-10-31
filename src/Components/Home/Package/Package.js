@@ -3,7 +3,7 @@ import { Button, Card, Col, Nav } from "react-bootstrap";
 import { HashLink } from "react-router-hash-link";
 import './Package.css';
 
-const Package = ({pack}) => {
+const Package = ({pack, addToCart}) => {
     const {_id,name, packImg, Days, details} = pack;
     return (
         <div>
@@ -17,7 +17,7 @@ const Package = ({pack}) => {
                         <div  className="package-btn">
                             <Nav.Link as={HashLink} to={`details/${_id}`}>
                             <Button variant="warning">Package Details</Button></Nav.Link>
-                            <Button variant="warning">Add to Cart</Button>
+                            <Button onClick={ () => addToCart(_id)} variant="warning">Add to Cart</Button>
                         </div>
                     </Card.Body>
                 </Card>

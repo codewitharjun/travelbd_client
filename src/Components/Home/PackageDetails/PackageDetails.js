@@ -9,7 +9,7 @@ const PackageDetails = () => {
     const {detailsId} = useParams(); 
     
     useEffect( () => {
-        fetch(`http://localhost:5000/packages/${detailsId}`)
+        fetch(`https://tranquil-ridge-17570.herokuapp.com/packages/${detailsId}`)
         .then(res => res.json())
         .then(data => {
             console.log(data);
@@ -18,11 +18,18 @@ const PackageDetails = () => {
     }, [])
 
     return (
-        <div id="">
-            <div>
+        <div >
+            <div className="details-banner">
                 <img className="banner-img" src={details.bannerImg} alt="" />
+                <h1 className="banner-qunote">{details.qnote}</h1>
             </div>
-            <h4>This is Package of : {details.name}</h4>
+            <h2 className="text-primary my-3">{details.name}</h2>
+            <div className="price-btn my-3">
+                <h4 className="text-danger">Price : ${details.price}</h4>
+                <button>Add To Cart</button>
+            </div>
+            <h4 className="text-info">Duration : {details.days} days</h4>
+            <p className="m-4">Details : {details.description}</p>
         </div>
     );
 };

@@ -1,8 +1,14 @@
 import React from "react";
+import { Link } from 'react-router-dom';
+
 
 const PageNotFound = () => {
     return (
-        <div>This is PageNotFound</div>
+        <div>
+            <img className="notfound" src= "https://i.ibb.co/sjMmVhw/404.png" alt=""/>
+            <br/>
+            <Link to="/"><button>Go back</button></Link>
+        </div>
     );
 };
 

@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "react-bootstrap";
 import { useHistory, useLocation } from "react-router";
 import useAuth from "../../../Hooks/useAuth";
+import './Login.css';
 
 
 const Login = () => {
@@ -19,7 +20,7 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <div className="h50">
             <Button className="mb-5" onClick={handleLogIn} variant="warning">
                 <i className="fab fa-google google-style"></i>GooGle LogIn
             </Button>
