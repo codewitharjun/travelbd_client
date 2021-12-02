@@ -52,6 +52,7 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/cart">
               <Cart></Cart>
+            </PrivateRoute>
             <Route path="/login">
               <Login></Login>
             </Route>
@@ -67,4 +68,3 @@ function App() {
 }
 
 export default App;
-   
